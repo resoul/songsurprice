@@ -1,0 +1,233 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #181818;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+}
+.ui-main {
+  display: flex;
+}
+.ui-promo {
+  width: 45%;
+  flex: 0 0 45%;
+  min-height: 100vh;
+}
+.ui-welcome {
+  flex: 0 1 55%;
+  contain: paint layout;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding-top: 30px;
+}
+.ui-promo-holder {
+  position: fixed;
+  top: 50%;
+  left: calc(45% - 350px);
+  transform: translate(-50%, -50%);
+}
+.ui-video-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  content: normal;
+  border-radius: 12px;
+}
+.ui-video {
+  max-width: 350px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+.ui-music-box {
+  flex-direction:row;
+  display: flex;
+}
+.ui-music-box-img {
+  width: 50%;
+}
+.ui-music-box-img img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+}
+.ui-music-box-desc {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 15px;
+}
+.ui-music-box-desc h2 {
+  margin: 0 0 20px;
+  color: hsla(160, 100%, 37%, 1);
+}
+.ui-music-box-desc p {
+  margin: 0 0 15px;
+  color: #fff;
+}
+.ui-releases {
+  display: flex;
+  flex-direction: row;
+}
+.ui-start-journey {
+  width: 50%;
+  flex: 0 0 50%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ui-start-journey button {
+  padding: 10px 25px;
+  color: hsla(160, 100%, 37%, 1);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.ui-release {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 50%;
+  flex: 0 0 50%;
+}
+.ui-release-title {
+  margin: 0 0 10px;
+  padding-left: 15px;
+  color: #fff;
+}
+.ui-release-player {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ui-release-audio {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 20px;
+  text-align: left;
+  vertical-align: top;
+  text-indent: 0;
+  position: fixed;
+  height: 70px;
+  width: 100%;
+}
+.ui-release-player li {
+  padding: 5px;
+  margin-top: 10px;
+  transition: all .3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ui-release-player li:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ui-release-player li:first-child {
+  margin-top: 0;
+}
+.ui-release-player li .cover {
+  flex: 0 1 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ui-release-player li .pause-icon,
+.ui-release-player li .play-icon {
+  opacity: 1;
+  fill: #515365;
+  color: #515365;
+}
+.ui-release-player li .play-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.ui-release-player li .pause-icon svg {
+  width: 16px;
+  height: 20px;
+}
+.ui-release-player li .composition {
+  flex: 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ui-release-player li .composition-time {
+  flex: 0 1 50px;
+}
+.ui-release-player li time {
+  transition: all .3s ease;
+  margin-right: 10px;
+  color: #888da8;
+}
+.ui-release-player li .composition-name {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #515365;
+}
+.ui-release-player li .composition-author {
+  display: block;
+  font-size: 11px;
+  color: #888da8;
+}
+.ui-release-audio-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ui-btn-audio-control {
+  background: transparent;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+}
+.ui-btn-audio-control {
+  width: 26px;
+  height: 26px;
+  margin-left: 30px;
+}
+.ui-btn-audio-control:first-child {
+  margin-left: 0;
+}
+.ui-btn-audio-control-duration {
+  margin-left: 30px;
+  color: #888da8;
+  font-size: 11px;
+  line-height: 11px;
+  width: 34px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+.ui-btn-audio-control-slider{
+  flex: auto;
+  height: 26px;
+  margin-left: 30px;
+}
+.ui-btn-audio-control-slider input, .ui-btn-audio-control-volume input {
+  width: 100%;
+  height: 100%;
+}
+.ui-btn-audio-control-volume {
+  width: 70px;
+  height: 26px;
+  margin-left: 30px;
+}
