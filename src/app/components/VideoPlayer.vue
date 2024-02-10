@@ -31,5 +31,8 @@ export default {
 <template>
 <div>
   <video class="ui-video" :src="videoSource" autoplay muted ref="videoPlayer" @ended="restartVideo"></video>
+  <div class="ui-gradient-wrapper">
+    <img src="../assets/gradient.png" class="ui-gradient-overview" alt="gradient">
+  </div>
 </div>
 </template>

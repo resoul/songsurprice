@@ -13,24 +13,17 @@ body {
 }
 .ui-main {
   display: flex;
+  flex-direction: column;
 }
-.ui-promo {
-  width: 45%;
-  flex: 0 0 45%;
-  min-height: 100vh;
-}
-.ui-welcome {
-  flex: 0 1 55%;
-  contain: paint layout;
-  flex-grow: 0;
-  flex-shrink: 0;
-  padding-top: 30px;
-}
-.ui-promo-holder {
-  position: fixed;
-  top: 50%;
-  left: calc(45% - 350px);
-  transform: translate(-50%, -50%);
+.ui-gradient-wrapper {
+  position: absolute;
+  bottom: -1px;
+  pointer-events: none;
+  width: 100%;
+  .ui-gradient-overview {
+    display: block;
+    width: 100%;
+  }
 }
 .ui-video-preview {
   display: block;
@@ -41,25 +34,18 @@ body {
   border-radius: 12px;
 }
 .ui-video {
-  max-width: 350px;
   width: 100%;
   margin: 0 auto;
-  border-radius: 12px;
 }
 .ui-music-box {
-  flex-direction:row;
+  flex-direction:column;
   display: flex;
-}
-.ui-music-box-img {
-  width: 50%;
 }
 .ui-music-box-img img {
   display: block;
   width: 100%;
-  border-radius: 12px;
 }
 .ui-music-box-desc {
-  width: 50%;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -75,7 +61,7 @@ body {
 }
 .ui-releases {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .ui-start-journey {
   width: 50%;
@@ -85,6 +71,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  order: 1;
 }
 .ui-start-journey button {
   padding: 10px 25px;
@@ -98,8 +85,9 @@ body {
 .ui-release {
   padding-top: 25px;
   padding-bottom: 25px;
-  width: 50%;
+  width: 100%;
   flex: 0 0 50%;
+  order: 2;
 }
 .ui-release-title {
   margin: 0 0 10px;
@@ -123,6 +111,7 @@ body {
   position: fixed;
   height: 70px;
   width: 100%;
+  z-index: 22;
 }
 .ui-release-player li {
   padding: 5px;
@@ -230,4 +219,78 @@ body {
   width: 70px;
   height: 26px;
   margin-left: 30px;
+}
+@media (max-width: 559px) {
+  .ui-promo {
+    position: absolute;
+    z-index: 11;
+  }
+  .ui-welcome {
+    position: relative;
+    z-index: 12;
+    margin-top: 150%;
+    background: #181818;
+  }
+}
+@media (min-width: 560px) {
+  .ui-main {
+    display: flex;
+    flex-direction: row;
+  }
+  .ui-promo {
+    width: 45%;
+    flex: 0 0 45%;
+    min-height: 100vh;
+    .ui-promo-holder {
+      position: fixed;
+      top: 50%;
+      left: calc(45% - 350px);
+      transform: translate(-50%, -50%);
+      .ui-video {
+        max-width: 350px;
+        border-radius: 12px;
+      }
+    }
+  }
+  .ui-welcome {
+    flex: 0 1 55%;
+    contain: paint layout;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-top: 30px;
+  }
+  .ui-music-box {
+    flex-direction:row;
+  }
+  .ui-music-box-img {
+    width: 50%;
+  }
+  .ui-music-box-desc {
+    width: 50%;
+  }
+  .ui-music-box-img img {
+    border-radius: 12px;
+  }
+  .ui-releases {
+    flex-direction: row;
+  }
+  .ui-start-journey {
+    order: 2;
+  }
+  .ui-release {
+    order: 1;
+    width: 50%;
+  }
+  .ui-gradient-wrapper {
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+
+}
+@media (min-width: 992px) {
+
+}
+@media (min-width: 1200px) {
+
 }
