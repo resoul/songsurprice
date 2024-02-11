@@ -37,7 +37,7 @@ export default {
     <div class="ui-releases">
       <ui-audio title="New Release" />
       <div class="ui-start-journey">
-        <button>Start the journey now</button>
+        <button @click="$router.push('/order')">Start the journey now</button>
       </div>
     </div>
   </div>
