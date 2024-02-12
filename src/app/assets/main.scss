@@ -220,9 +220,23 @@ body {
   height: 26px;
   margin-left: 30px;
 }
+.ui-card-button {
+  padding: 10px 25px;
+  color: hsla(160, 100%, 37%, 1);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: capitalize;
+  &.active {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
 .ui-stepper {
   flex-direction: column;
   display: flex;
+  max-width: 500px;
+  margin: 0 auto;
   .ui-stepper-nav {
     display: flex;
     margin: 0 auto;
@@ -269,13 +283,72 @@ body {
     width: 100%;
     margin: 0 auto;
     padding: 3.75rem 0 2.5rem;
-    button {
-      background: transparent;
-      border: 0;
+    .ui-stepper-step {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 2.5rem;
+      .ui-release {
+        width: 100%;
+        flex: 0 0 100%;
+      }
+    }
+    .ui-stepper-label {
       color: hsla(160, 100%, 37%, 1);
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
       cursor: pointer;
+      text-transform: capitalize;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      margin-left: 15px;
+      input {
+        display: none;
+      }
+      &:first-child {
+        margin-left: 15px;
+      }
+      &.active {
+        background: rgba(0, 0, 0, 0.6);
+      }
+    }
+    .ui-card-button {
+      display: flex;
+      justify-content: center;
+    }
+    .ui-stepper-audio-selection {
+      visibility: hidden;
+      opacity: 0;
+      color: hsla(160, 100%, 37%, 1);
+      .author {
+        color: #888da8;
+      }
+      .name {
+        font-weight: 500;
+        color: #515365;
+      }
+      &.active {
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
+}
+.ui-notification {
+  position: fixed;
+  max-width: 220px;
+  color: #fff;
+  padding: 10px 0;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: capitalize;
+  width: 100%;
+  text-align: center;
+  top: calc(50% - 20px);
+  left: calc(50% - 110px);
 }
 @media (max-width: 559px) {
   .ui-promo {
@@ -350,4 +423,21 @@ body {
 }
 @media (min-width: 1200px) {
 
+}
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
