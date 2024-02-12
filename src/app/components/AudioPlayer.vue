@@ -2,8 +2,10 @@
 export default {
   name: "AudioPlayer",
   props: {
-    title: String
+    title: String,
+    stopSong: Boolean
   },
+  emits: ['selectedItem'],
   data() {
     return {
       audioSource: null,
@@ -73,7 +75,9 @@ export default {
       }
     }
   },
-  mounted() {},
+  unmounted() {
+    this.stopAudioSong()
+  },
   computed: {
     isLastBtnDisabled() {
       return this.currentIndex === (this.items.length - 1)
@@ -131,6 +135,7 @@ export default {
       item.isSongStarted = true
       this.currentTime = item.duration
       this.audioSource = new Audio(item.uri)
+      this.$emit('selectedItem', item)
       this.currentDuration = 0
       this.maxDuration = 0
       this.audioSource.volume = this.volume
