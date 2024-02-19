@@ -40,5 +40,10 @@ export default {
         <button @click="$router.push('/order')" class="ui-card-button">Start the journey now</button>
       </div>
     </div>
+    <div class="ui-music-about">
+      <h2 v-text="headline"></h2>
+      <img src="/i/wave.png" alt="wave" />
+      <p v-for="text in desc"> {{ text }}</p>
+    </div>
   </div>
 </template>

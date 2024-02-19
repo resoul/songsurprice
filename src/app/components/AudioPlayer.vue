@@ -24,45 +24,38 @@ export default {
       items: [
         {
           id: 1,
-          uri: '/a/2track_5.mp3',
-          author: 'Kung Fighters',
-          name: 'The Pretender',
-          duration: '03:03'
+          uri: '/a/h.p.michael.cut.mp3',
+          author: 'Song Surprice',
+          name: 'Happy Birthday Michael',
+          duration: '00:51'
         },
         {
           id: 2,
-          uri: '/a/4track_funky_7.mp3',
-          author: 'System of a Revenge',
-          name: 'The Past Starts Slow...',
-          duration: '02:43'
+          uri: '/a/10track_progressive.DEMOcut.mp3',
+          author: 'Song Surprice',
+          name: 'demo',
+          duration: '01:51'
         },
         {
           id: 3,
-          uri: '/a/6track_dubstep.mp3',
-          author: 'Archiduke',
-          name: 'Killer Queen',
-          duration: '03:31'
+          uri: '/a/11track_funky_pop_op_op_DEMOcut.mp3',
+          author: 'Song Surprice',
+          name: 'demo',
+          duration: '00:38'
         },
         {
           id: 4,
-          uri: '/a/7track_Future_Bass.mp3',
-          author: 'System of a Revenge',
-          name: 'The Past Starts Slow...',
-          duration: '03:19'
+          uri: '/a/4track_drum_and_bass_DEMOcut.mp3',
+          author: 'Song Surprice',
+          name: 'demo',
+          duration: '00:42'
         },
         {
           id: 5,
-          uri: '/a/9track_pop_4.mp3',
-          author: 'System of a Revenge',
-          name: 'Seven Nation Army',
-          duration: '02:36'
-        },
-        {
-          id: 6,
-          uri: '/a/3track_2.mp3',
-          author: 'The Black Stripes',
-          name: 'Hypnopulse',
-          duration: '03:10'
+          uri: '/a/6track_dubstep_DEMOcut.mp3',
+          author: 'Song Surprice',
+          name: 'demo',
+          duration: '01:01'
         }
       ]
     }
