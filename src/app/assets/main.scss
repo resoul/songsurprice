@@ -82,6 +82,20 @@ body {
   cursor: pointer;
   text-transform: capitalize;
 }
+.ui-music-about {
+  display: flex;
+  flex-direction: column;
+  padding:3rem 1.5rem 1.5rem;
+  h2 {
+    margin: 0 0 20px;
+    color: hsla(160, 100%, 37%, 1);
+    text-align: center;
+  }
+  p {
+    margin: 0 0 15px;
+    color: #fff;
+  }
+}
 .ui-release {
   padding-top: 25px;
   padding-bottom: 25px;
