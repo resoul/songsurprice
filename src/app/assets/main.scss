@@ -349,6 +349,52 @@ body {
     }
   }
 }
+.ui-audio-recorder-title {
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+.ui-audio-recorder {
+  width: 100%;
+  padding: 10px 0;
+  .ui-audio-recorder-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p {
+      color: #fff;
+    }
+  }
+  .ui-audio-recorder-waveform {
+    width:100%;
+    height:150px;
+  }
+  .ui-audio-recorder-recordings {
+    border-radius: 12px;
+    padding: 10px;
+    border: 1px solid #fff;
+  }
+  .ui-audio-recorder-item-control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-top: 1px solid #fff;
+    .select {
+      color: rgb(200, 0, 200);
+    }
+  }
+  .ui-audio-recorder-item {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid hsla(160, 100%, 37%, 1);
+    &:first-child {
+      margin-top: 0;
+      border-top: 0;
+    }
+  }
+}
 .ui-notification {
   position: fixed;
   max-width: 220px;
