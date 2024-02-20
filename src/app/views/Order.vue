@@ -1,9 +1,11 @@
 <script>
 import AudioPlayer from "@/app/components/AudioPlayer.vue";
+import AudioRecorder from "@/app/components/AudioRecorder.vue";
 export default {
   name: "Order",
   components: {
-    'ui-audio': AudioPlayer
+    'ui-audio': AudioPlayer,
+    'ui-audio-recorder': AudioRecorder
   },
   data() {
     return {
@@ -22,6 +24,7 @@ export default {
       },
       selectedIndex: null,
       selectedGenre: null,
+      selectedVoice: null,
       genres: ['Techno', 'Drum and Bass', 'Deep House', 'Classic', 'Ambient', 'Minimal', 'Trance'],
       titles: ['Genres', 'Tracks', 'Voice', 'Completed']
     }
@@ -73,12 +76,15 @@ export default {
           }
           break;
         case 2:
-          this.canContinue = true
-              break;
+          if (!this.canContinue) {}
+          break;
         case 3:
           this.canContinue = true
           break;
       }
+    },
+    skip() {
+      this.currentPage++;
     },
     submit() {
       this.isNeedNotify();
@@ -86,11 +92,32 @@ export default {
       this.canContinue = false
       if (this.currentPage === 3) {
         const text = `genre: ${this.selectedGenre}, song: ${this.selectedAudio.author} : ${this.selectedAudio.name}`
-        this.sendMessage(text)
+        console.log(text)
+        //this.sendMessage(text)
       }
     },
     sendMessage(text) {
       fetch(import.meta.env.VITE_TELEGRAM + '/sendMessage?chat_id=-4121938659&text=' + text)
+    },
+    selectItem(uri, duration) {
+      this.currentPage++;
+
+      fetch(uri)
+          .then(response => response.blob())
+          .then(data => {
+            const text = `genre: ${this.selectedGenre}, song: ${this.selectedAudio.author} : ${this.selectedAudio.name}`
+
+            const form = new FormData
+            form.append('audio', data, 'voice.mp3')
+            form.append('title', text)
+            form.append('caption', text)
+            form.append('chat_id', 588857471)
+            form.append('duration', duration)
+            fetch('https://api.telegram.org/bot6876245795:AAHAxm_aj2RZ5OUfpFqyOTg45iKzQGCFbSQ/sendAudio', {
+              method: 'POST',
+              body: form
+            })
+          })
     }
   }
 }
@@ -115,7 +142,11 @@ export default {
         </span>
         <ui-audio :title="selectedGenre" @selected-item="audioSelection" />
       </div>
-      <div class="ui-stepper-step" v-else-if="currentPage === 2">media recorder</div>
+      <div class="ui-stepper-step" v-else-if="currentPage === 2">
+        <h3 class="ui-audio-recorder-title">You can record a voice</h3>
+        <ui-audio-recorder  @select-item="selectItem" />
+        <button class="ui-card-button" @click="skip">Skip</button>
+      </div>
       <div class="ui-stepper-step" v-else-if="currentPage === 3">place order</div>
       <button v-text="currentPage === 3 ? 'Submit' : 'Next'" class="ui-card-button" :class="{ active: canContinue }"></button>
     </form>

@@ -12,7 +12,8 @@
     "@stripe/stripe-js": "^2.4.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "wavesurfer.js": "^7.7.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.3",
