@@ -31,24 +31,24 @@ export default {
         },
         {
           id: 2,
-          uri: '/a/10track_progressive.DEMOcut.mp3',
+          uri: '/a/LoFIJazz1.mp3',
           author: 'Song Surprice',
           name: 'demo',
-          duration: '01:51'
+          duration: '03:45'
         },
         {
           id: 3,
-          uri: '/a/11track_funky_pop_op_op_DEMOcut.mp3',
+          uri: '/a/Rockpop1track_DEMOcut.mp3',
           author: 'Song Surprice',
           name: 'demo',
-          duration: '00:38'
+          duration: '01:00'
         },
         {
           id: 4,
-          uri: '/a/4track_drum_and_bass_DEMOcut.mp3',
+          uri: '/a/trap1_DEMOcut.mp3',
           author: 'Song Surprice',
           name: 'demo',
-          duration: '00:42'
+          duration: '00:51'
         },
         {
           id: 5,
