@@ -41,6 +41,7 @@ export default {
       </div>
     </div>
     <div class="ui-music-about">
+      <iframe class="ui-spotify-player" src="https://open.spotify.com/embed/track/1URl5isRm6fKQ9wijBrRN9?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       <h2 v-text="headline"></h2>
       <img src="/i/wave.png" alt="wave" />
       <p v-for="text in desc"> {{ text }}</p>

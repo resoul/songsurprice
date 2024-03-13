@@ -410,6 +410,10 @@ body {
   top: calc(50% - 20px);
   left: calc(50% - 110px);
 }
+.ui-spotify-player {
+  border-radius:12px;
+  margin-bottom: 20px;
+}
 @media (max-width: 559px) {
   .ui-promo {
     position: absolute;
