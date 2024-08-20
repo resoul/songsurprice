@@ -4,5 +4,5 @@ export default {
 }
 </script>
 <template>
-<div class="ui-main"><RouterView /></div>
+  <router-view />
 </template>
