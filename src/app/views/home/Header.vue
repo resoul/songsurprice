@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      showMenu: false
+    }
+  }
 }
 </script>
 
@@ -28,10 +33,17 @@ export default {
               <p class="relative z-10 group-hover:text-white">Create a track</p>
             </router-link>
           </div>
+          <div class="flex sm:hidden">
+            <div class="hamburger" @click="showMenu = !showMenu">
+              <div class="ZmYW_"></div>
+              <div class="ZmYW_ jorTa"></div>
+              <div class="ZmYW_"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="fixed top-0 bottom-0 left-0 z-50 hidden w-4/6 navbar-menu sm:max-w-xs">
+    <div :class="{ hidden : !showMenu }" class="fixed top-0 bottom-0 left-0 z-50 w-4/6 navbar-menu sm:max-w-xs">
       <div class="fixed inset-0 bg-gray-800 navbar-backdrop opacity-80"></div>
       <nav class="relative z-10 h-full py-8 bg-white px-9">
         <div class="flex flex-wrap justify-between h-full">
@@ -41,11 +53,11 @@ export default {
                 <a class="inline-block" href="#"></a>
               </div>
               <div class="w-auto p-2">
-                <a class="navbar-burger" href="#">
+                <button class="navbar-burger" @click="showMenu = !showMenu">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6 18L18 6M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                   </svg>
-                </a>
+                </button>
               </div>
             </div>
           </div>
