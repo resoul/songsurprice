@@ -19,8 +19,8 @@ export default {
               <li class="text-lg text-white font-heading mr-9 hover:text-gray-200">
                 <a href="/#features" class="router-link-active router-link-exact-active">Features </a>
               </li>
-              <li class="text-lg text-white font-heading mr-9 hover:text-gray-200" style="display: none">
-                <a href="/blog" class="">Blog</a>
+              <li class="text-lg text-white font-heading mr-9 hover:text-gray-200">
+                <a href="/#how-it-works" class="">How It Works</a>
               </li>
               <li class="text-lg text-white font-heading mr-9 hover:text-gray-200" style="display: none">
                 <a href="/#pricing" class="router-link-active router-link-exact-active">Pricing</a>
@@ -63,7 +63,7 @@ export default {
           </div>
           <div class="flex flex-col justify-center w-full py-8">
             <ul>
-              <li class="mb-12">
+              <li class="mb-12" style="display: none">
                 <a class="text-lg font-medium text-gray-900 font-heading hover:text-gray-700" href="#">Features</a>
               </li>
               <li class="mb-12" style="display: none">
@@ -80,7 +80,7 @@ export default {
           <div class="flex flex-col justify-end w-full">
             <div class="flex flex-wrap">
               <div class="w-full">
-                <button class="group relative p-0.5 font-heading block w-full text-lg text-gray-900 font-medium bg-gradient-cyan overflow-hidden rounded-10">
+                <button @click="showMenu = !showMenu" class="group relative p-0.5 font-heading block w-full text-lg text-gray-900 font-medium bg-gradient-cyan overflow-hidden rounded-10">
                   <div class="absolute top-0 left-0 w-full h-full transition duration-500 ease-in-out transform -translate-y-full group-hover:-translate-y-0 bg-gradient-cyan"></div>
                   <div class="px-5 py-2 bg-white rounded-lg">
                     <p class="relative z-10">Create track</p>
