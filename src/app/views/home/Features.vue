@@ -6,7 +6,7 @@ export default {
 
 <template>
 <section id="features">
-  <div class="container px-4 mx-auto mb-12">
+  <div class="container px-4 mx-auto mb-5">
     <div class="flex flex-wrap -m-6">
       <div class="w-full p-6">
         <div class="max-w-2xl mx-auto">
