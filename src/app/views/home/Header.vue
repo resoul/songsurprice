@@ -17,10 +17,10 @@ export default {
           <div class="hidden w-auto lg:block">
             <ul class="flex items-center mr-10">
               <li class="text-lg text-white font-heading mr-9 hover:text-gray-200">
-                <a href="/#features" class="router-link-active router-link-exact-active">Features </a>
+                <a href="/#features">Features</a>
               </li>
               <li class="text-lg text-white font-heading mr-9 hover:text-gray-200">
-                <a href="/#how-it-works" class="">How It Works</a>
+                <a href="/#how-it-works">How It Works</a>
               </li>
               <li class="text-lg text-white font-heading mr-9 hover:text-gray-200" style="display: none">
                 <a href="/#pricing" class="router-link-active router-link-exact-active">Pricing</a>
