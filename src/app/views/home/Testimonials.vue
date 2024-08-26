@@ -24,10 +24,10 @@ export default {
               <div class="flex-1 p-3">
                 <p class="mb-4 text-sm text-gray-500">
                   <span class="font-serif text-sm sm:text-xl px-0.5">“</span>
-                  <i>Best platform to send gifts.</i>
+                  <i>Using this platform to order a music track was an incredible experience! The process was seamless, and the final result exceeded my expectations. The music perfectly captured the vibe I was looking for. Highly recommend!</i>
                   <span class="font-serif text-xl px-0.5">”</span>
                 </p>
-                <p class="mb-3 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-200 via-green-300 to-blue-500"> Mark</p>
+                <p class="mb-3 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-200 via-green-300 to-blue-500"> Mark Roberts</p>
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default {
               <div class="flex-1 p-3">
                 <p class="mb-4 text-sm text-gray-500">
                   <span class="font-serif text-sm sm:text-xl px-0.5">“</span>
-                  <i>Best platform to send gifts.</i>
+                  <i>I’m absolutely thrilled with the custom music track I ordered! The platform made it easy to communicate my vision, and the final product was exactly what I wanted. The quality and creativity were top-notch. I’ll definitely be using this service again!</i>
                   <span class="font-serif text-xl px-0.5">”</span>
                 </p>
                 <p class="mb-3 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-200 via-green-300 to-blue-500"> Vence</p>

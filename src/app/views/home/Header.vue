@@ -5,6 +5,12 @@ export default {
     return {
       showMenu: false
     }
+  },
+  methods: {
+    createTrack() {
+      this.showMenu = !this.showMenu
+      this.$router.push({ name: 'order' })
+    }
   }
 }
 </script>
@@ -28,7 +34,7 @@ export default {
             </ul>
           </div>
           <div class="hidden w-auto lg:block">
-            <router-link to="/" class="relative block px-5 py-2 overflow-hidden text-lg text-white border-2 group font-heading" style="border-image:linear-gradient(to left, #f8721d, #d347ef, #5146e6) 1;">
+            <router-link :to="{ name: 'order' }" class="relative block px-5 py-2 overflow-hidden text-lg text-white border-2 group font-heading" style="border-image:linear-gradient(to left, #f8721d, #d347ef, #5146e6) 1;">
               <div class="absolute top-0 left-0 w-full h-full transition duration-500 ease-in-out transform -translate-y-full group-hover:-translate-y-0" style="background-image:linear-gradient(to left, #f8721d, #d347ef, #5146e6);"></div>
               <p class="relative z-10 group-hover:text-white">Create a track</p>
             </router-link>
@@ -80,7 +86,7 @@ export default {
           <div class="flex flex-col justify-end w-full">
             <div class="flex flex-wrap">
               <div class="w-full">
-                <button @click="showMenu = !showMenu" class="group relative p-0.5 font-heading block w-full text-lg text-gray-900 font-medium bg-gradient-cyan overflow-hidden rounded-10">
+                <button @click="createTrack" class="group relative p-0.5 font-heading block w-full text-lg text-gray-900 font-medium bg-gradient-cyan overflow-hidden rounded-10">
                   <div class="absolute top-0 left-0 w-full h-full transition duration-500 ease-in-out transform -translate-y-full group-hover:-translate-y-0 bg-gradient-cyan"></div>
                   <div class="px-5 py-2 bg-white rounded-lg">
                     <p class="relative z-10">Create track</p>

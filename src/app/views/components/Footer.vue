@@ -40,7 +40,7 @@ export default {
         <div class="w-full p-6 md:w-1/2 lg:w-2/12">
           <div class="h-full">
             <h3 class="text-base font-medium text-gray-500 mb-7 font-heading tracking-px">Support</h3>
-            <ul>
+            <ul style="display: none">
               <li class="mb-4">
                 <router-link class="text-base font-medium text-white font-heading hover:text-gray-200" :to="{ name: 'contact' }">Contact Us</router-link>
               </li>

@@ -5,26 +5,16 @@ export default {
 </script>
 
 <template>
-  <section class="relative overflow-hidden mt-20 mb-20">
-    <div class="container px-4 mx-auto">
-      <div class="max-w-2xl mx-auto mb-20">
-        <h2 class="mb-5 text-3xl font-semibold text-center text-white font-heading sm:text-5xl"> The best tools for creating
-          <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600">gifts</span>
-        </h2>
-        <p class="text-center text-gray-100 sm:text-lg opacity-60"> Do not wasting your time. </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="-mt-12 mb-8 sm:mb-20">
+  <div>
     <div class="p-4 lg:p-0">
-      <h2 class="text-4xl font-semibold text-center text-white font-heading sm:text-5xl"> Pay <div class="relative inline-flex">
+      <h2 class="text-4xl font-semibold text-center text-white font-heading sm:text-5xl">
+        Pay <span class="relative inline-flex">
         <h2 class="relative text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600">once.</h2>
-      </div> Use forever. </h2>
+      </span> Love forever. </h2>
       <div class="mt-14 grid max-w-5xl grid-cols-1 gap-4 mx-auto md:grid-cols-3">
         <div class="flex flex-col space-y-5 rounded-md bg-[#030405] p-8 md:col-span-2">
           <div class="flex items-center justify-start">
-            <h2 class="w-10/12 text-4xl font-semibold text-gray-100"> Learn from a growing library of <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600">product videos</span>
+            <h2 class="w-10/12 text-4xl font-semibold text-gray-100"> Our simple <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600">things</span>
             </h2>
           </div>
           <div class="pt-6 space-y-5 sm:pt-0">
@@ -36,9 +26,9 @@ export default {
               </div>
               <div class="flex flex-col">
                 <div class="flex items-center justify-start contents-center">
-                  <h3 class="m-0 font-semibold text-gray-200">134+ product video examples</h3>
+                  <h3 class="m-0 font-semibold text-gray-200">134+ happy customers</h3>
                 </div>
-                <p class="text-sm text-gray-400">Full access to hundreds of product video examples for inspiration.</p>
+                <p class="text-sm text-gray-400">We make hundreds of music gift tracks.</p>
               </div>
             </div>
             <div class="flex items-start justify-start space-x-4">
@@ -49,9 +39,9 @@ export default {
               </div>
               <div class="flex flex-col">
                 <div class="flex items-center justify-start contents-center">
-                  <h3 class="m-0 font-semibold text-gray-200">Tools and Tutorials</h3>
+                  <h3 class="m-0 font-semibold text-gray-200">Many features</h3>
                 </div>
-                <p class="text-sm text-gray-400"> Get access to tools and tutorials <span>(soon)</span> on how you can easily create your own engaging product videos with little effort. </p>
+                <p class="text-sm text-gray-400">Create a memo and we will put intro track.</p>
               </div>
             </div>
             <div class="flex items-start justify-start space-x-4">
@@ -62,22 +52,22 @@ export default {
               </div>
               <div class="flex flex-col mb-10">
                 <div class="flex items-center justify-start contents-center">
-                  <h3 class="m-0 font-semibold text-gray-200">Pay once, love forever</h3>
+                  <h3 class="m-0 font-semibold text-gray-200">Streaming</h3>
                 </div>
-                <p class="text-sm text-gray-400"> Not another annoying subscription. Get lifetime access to our library of high quality product videos for single one-time payment. ROI guaranteed. </p>
+                <p class="text-sm text-gray-400">Enjoy your track in all major streaming platforms</p>
               </div>
             </div>
             <div class="!-mt-5">
               <div class="flex items-center justify-start space-x-2">
                 <p class="text-sm opacity-60">Used by</p>
                 <div class="flex -space-x-3 overflow-hidden">
-                  <img src="@/app/assets/zSctpj_J_400x400.jpg" alt="Avatar 1" class="h-8 w-8 rounded-full border-2 border-white/30">
-                  <img src="@/app/assets/qASrP2yS_400x400.jpg" alt="Avatar 2" class="h-8 w-8 rounded-full border-2 border-white/30">
-                  <img src="@/app/assets/Rm_mnw2n_400x400.jpg" alt="Avatar 4" class="h-8 w-8 rounded-full border-2 border-white/30">
-                  <img src="@/app/assets/pUNfkFmM_400x400.jpg" alt="Avatar 5" class="h-8 w-8 rounded-full border-2 border-white/30">
+                  <img src="@/app/assets/49329050_385215318706403_8704988687026356224_n.jpg" alt="Avatar 1" class="h-8 w-8 rounded-full border-2 border-white/30">
+                  <img src="@/app/assets/47053939_345844452866127_4549742191903244288_n.jpg" alt="Avatar 2" class="h-8 w-8 rounded-full border-2 border-white/30">
+                  <img src="@/app/assets/49329050_385215318706403_8704988687026356224_n.jpg" alt="Avatar 4" class="h-8 w-8 rounded-full border-2 border-white/30">
+                  <img src="@/app/assets/47053939_345844452866127_4549742191903244288_n.jpg" alt="Avatar 5" class="h-8 w-8 rounded-full border-2 border-white/30">
                 </div>
               </div>
-              <p class="text-sm mt-1.5 opacity-60"> + 100 other <span class="font-medium">marketers</span>, <span class="font-medium">video creators</span> and <span class="font-medium">product managers</span>! </p>
+              <p class="text-sm mt-1.5 opacity-60"> + 100 other <span class="font-medium">makers</span>, <span class="font-medium">music creators</span> and <span class="font-medium">happy peoples</span>! </p>
             </div>
             <!---->
           </div>
@@ -85,22 +75,23 @@ export default {
         <div class="flex flex-col px-3 -mt-6 sm:px-0 sm:mt-0">
           <div class="relative flex-1 bg-gray-900 border border-black rounded-xl">
             <div class="flex flex-col items-center justify-center h-full p-6 text-center md:p-8">
-              <p class="rounded-md bg-gradient-to-r from-orange-600 via-fuchsia-500 to-indigo-600 py-1 px-2 text-[12px] font-semibold uppercase tracking-wide text-white md:left-7"> Lifetime access! </p>
+              <p class="rounded-md bg-gradient-to-r from-orange-600 via-fuchsia-500 to-indigo-600 py-1 px-2 text-[12px] font-semibold uppercase tracking-wide text-white md:left-7">
+                One-time payment!
+              </p>
               <div class="mt-8 mb-4 text-4xl font-semibold text-white md:text-5xl">
                 <div>
                   <div>$29</div>
                 </div>
               </div>
-              <p class="mt-1 text-sm font-normal text-gray-300 whitespace-nowrap"> One-time payment, <br class="hidden"> access forever! </p>
               <p class="text-lg font-normal text-gray-200">
-                <span class="font-medium text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 opacity-90 to-indigo-400">Forever</span> full access
+                <span class="font-medium text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 opacity-90 to-indigo-400">Forever</span> access
               </p>
-              <p class="text-xs mt-1 text-green-400">Unlimited views and access.</p>
+              <p class="text-xs mt-1 text-green-400">Unlimited listings.</p>
               <div class="relative inline-flex items-center justify-center mt-6 group">
                 <div class="absolute transition-all duration-200 rounded-full group-hover:shadow-purple-500/50 -inset-px bg-gradient-to-r from-purple-500 to-red-500 group-hover:shadow-lg"></div>
-                <a href="https://product-video-examples.lemonsqueezy.com/checkout/buy/4f61601d-a275-40cb-85a7-9fe578ba9aaa" target="_blank" class="relative inline-flex items-center justify-center px-8 py-3 text-sm font-normal text-white bg-black border border-transparent rounded-full cursor-pointer hover:bg-gray-900 md:text-xs lg:text-base">
-                  <p>Get access forever!</p>
-                </a>
+                <router-link :to="{ name: 'order' }" class="relative inline-flex items-center justify-center px-8 py-3 text-sm font-normal text-white bg-black border border-transparent rounded-full cursor-pointer hover:bg-gray-900 md:text-xs lg:text-base">
+                  <p>Create Track</p>
+                </router-link>
               </div>
               <div class="inline-flex items-center content-center justify-center w-full mt-6 text-sm font-medium text-center text-gray-500 lg:w-auto">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="flex-shrink-0 w-5 h-5 mr-2">

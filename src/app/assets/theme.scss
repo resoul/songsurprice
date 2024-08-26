@@ -30,4 +30,24 @@
     margin: 5px 0;
   }
 }
+.my-notification {
+  .notification-title {
+    background: linear-gradient(to left, #f8721d, #d347ef, #5146e6);
+    padding: 10px;
+  }
 
+  .notification-content {
+    background: linear-gradient(to left, #f8721d, #d347ef, #5146e6);
+    padding: 10px;
+  }
+
+  &.success {
+    /*...*/
+  }
+  &.info {
+    /*...*/
+  }
+  &.error {
+    /*...*/
+  }
+}

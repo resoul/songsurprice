@@ -5,4 +5,6 @@ export default {
 </script>
 <template>
   <router-view />
+  <notifications position="bottom right" group="custom" classes="my-notification" />
+  <notifications position="bottom right" group="main" />
 </template>
