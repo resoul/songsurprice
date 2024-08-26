@@ -22,8 +22,8 @@ export default {
               <li class="text-lg text-white font-heading mr-9 hover:text-gray-200">
                 <a href="/#how-it-works">How It Works</a>
               </li>
-              <li class="text-lg text-white font-heading mr-9 hover:text-gray-200" style="display: none">
-                <a href="/#pricing" class="router-link-active router-link-exact-active">Pricing</a>
+              <li class="text-lg text-white font-heading mr-9 hover:text-gray-200">
+                <a href="/#testimonials" class="router-link-active router-link-exact-active">Testimonials</a>
               </li>
             </ul>
           </div>

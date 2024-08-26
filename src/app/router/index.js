@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/form',
       name: 'form',
       component: () => import('../views/Form.vue')
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../views/ContactView.vue')
     }
   ]
 })

@@ -25,8 +25,8 @@ export default {
               <li class="mb-4">
                 <a class="text-base font-medium text-white font-heading hover:text-gray-200" href="/#how-it-works">How It Works</a>
               </li>
-              <li class="mb-4" style="display: none">
-                <a href="/blog" class="text-base font-medium text-white font-heading hover:text-gray-200">Blog</a>
+              <li class="mb-4">
+                <a href="/#testimonials" class="text-base font-medium text-white font-heading hover:text-gray-200">Testimonials</a>
               </li>
               <li class="mb-4" style="display: none">
                 <a href="/terms" class="text-base font-medium text-white font-heading hover:text-gray-200">Terms</a>
@@ -42,7 +42,7 @@ export default {
             <h3 class="text-base font-medium text-gray-500 mb-7 font-heading tracking-px">Support</h3>
             <ul>
               <li class="mb-4">
-                <a class="text-base font-medium text-white font-heading hover:text-gray-200" href="mailto:support@songsurprise.net">Contact Us</a>
+                <router-link class="text-base font-medium text-white font-heading hover:text-gray-200" :to="{ name: 'contact' }">Contact Us</router-link>
               </li>
             </ul>
           </div>

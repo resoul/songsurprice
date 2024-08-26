@@ -15,49 +15,7 @@ export default {
       </div>
     </div>
   </section>
-  <section class="relative overflow-hidden mb-20">
-    <div class="container px-4 mx-auto">
-      <div class="max-w-2xl mx-auto mb-20">
-        <h2 class="mb-5 text-4xl font-semibold text-center text-white font-heading sm:text-5xl"> People
-          <span class="relative text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600">love</span> gifts </h2>
-        <p class="text-center text-gray-100 sm:text-lg opacity-60"> SaaS businesses use video as an important component of their interactions with customers. Video is a powerful tool for building trust, educating, and engaging with your audience. </p>
-      </div>
-      <div class="w-10/12 mx-auto mb-4 -mt-12 sm:mb-0 sm:mt-0 sm:pt-6 sm:max-w-3xl">
-        <div class="flex flex-wrap justify-center -m-6 divide-y divide-gray-600 md:-m-16 md:divide-y-0 md:divide-x">
-          <div class="w-full p-6 md:w-1/2 md:p-16">
-            <div class="flex flex-wrap -m-3">
-              <div class="w-auto px-3 pt-5">
-                <img class="rounded-lg w-14 h-14" src="https://avatars.githubusercontent.com/u/1665273?v=4" alt="">
-              </div>
-              <div class="flex-1 p-3">
-                <p class="mb-4 text-sm text-gray-500">
-                  <span class="font-serif text-sm sm:text-xl px-0.5">“</span>
-                  <i>Best platform to send gifts.</i>
-                  <span class="font-serif text-xl px-0.5">”</span>
-                </p>
-                <p class="mb-3 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-200 via-green-300 to-blue-500"> Alex Styl</p>
-              </div>
-            </div>
-          </div>
-          <div class="w-full p-6 md:w-1/2 md:p-16">
-            <div class="flex flex-wrap -m-3">
-              <div class="w-auto px-3 pt-5">
-                <img class="rounded-lg w-14 h-14" src="https://avatars.githubusercontent.com/u/1665273?v=4" alt="">
-              </div>
-              <div class="flex-1 p-3">
-                <p class="mb-4 text-sm text-gray-500">
-                  <span class="font-serif text-sm sm:text-xl px-0.5">“</span>
-                  <i>Best platform to send gifts.</i>
-                  <span class="font-serif text-xl px-0.5">”</span>
-                </p>
-                <p class="mb-3 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-200 via-green-300 to-blue-500"> Alex Styl</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
   <div class="-mt-12 mb-8 sm:mb-20">
     <div class="p-4 lg:p-0">
       <h2 class="text-4xl font-semibold text-center text-white font-heading sm:text-5xl"> Pay <div class="relative inline-flex">
