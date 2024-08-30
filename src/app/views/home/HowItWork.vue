@@ -28,16 +28,16 @@ export default {
               <div class="mb-11 lg:max-w-sm">
                 <div class="flex items-center justify-start mb-4">
                   <ui-icon-idea class="mr-2 w-[35px] h-[35px] bg-slate-900 rounded-md flex justify-center items-center" />
-                  <h3 class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600 font-heading"> Create track </h3>
+                  <h3 class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600 font-heading"> Chose track </h3>
                 </div>
-                <p class="text-base text-gray-400"> Describe your track. Select a genre. Our library is growing by the day.</p>
+                <p class="text-base text-gray-400"> Chose your track. Or let us create exclusive track for you. Our library is growing by the day.</p>
               </div>
               <div class="mb-11 lg:max-w-sm">
                 <div class="flex items-center justify-start mb-4">
                   <ui-icon-setting class="mr-2 w-[35px] h-[35px] bg-slate-900 rounded-md flex justify-center items-center" />
-                  <h3 class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600 font-heading"> Record your memo </h3>
+                  <h3 class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600 font-heading"> Record audio message </h3>
                 </div>
-                <p class="text-base text-gray-400"> Use your micro to record your audio message. Then we combine your track & your memo. We've got you covered.</p>
+                <p class="text-base text-gray-400"> Use your micro to record your audio message. Then we combine your track & your message. Add your picture for Album cover.</p>
               </div>
               <div class="lg:max-w-sm">
                 <div class="flex items-center justify-start mb-4">
