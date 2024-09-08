@@ -1,13 +1,7 @@
 <script>
-import Header from "@/app/views/order/Header.vue";
-import Footer from "@/app/views/components/Footer.vue";
 import * as yup from "yup";
 export default {
-  name: "OrderView",
-  components: {
-    'ui-header': Header,
-    'ui-footer': Footer,
-  },
+  name: "CreateView",
   data() {
     const schema = yup.object().shape({
       promt: yup.string().required("Promt is required!").min(10, 'Message must be at least 25 characters'),
@@ -26,7 +20,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$supabase);
+    // console.log(this.$supabase);
   },
   methods: {
     submitForm() {
@@ -71,12 +65,10 @@ export default {
 </script>
 
 <template>
-  <ui-header class="mb-8 relative z-50" />
-  <div class="mb-8 sm:mb-20">
-    <div class="p-4 lg:p-0">
-      <h2 class="text-4xl font-semibold text-center text-white font-heading sm:text-5xl">Create a <span class="relative inline-flex"><h2 class="relative text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600">track</h2></span></h2>
-      <form @submit.prevent="submitForm">
-        <div class="mt-14 grid max-w-5xl grid-cols-1 gap-4 mx-auto md:grid-cols-1">
+  <div class="p-4 lg:p-0">
+    <h2 class="text-4xl font-semibold text-center text-white font-heading sm:text-5xl">Create a <span class="relative inline-flex"><h2 class="relative text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600">track</h2></span></h2>
+    <form @submit.prevent="submitForm">
+      <div class="mt-14 grid max-w-5xl grid-cols-1 gap-4 mx-auto md:grid-cols-1">
         <div class="flex flex-col space-y-5 rounded-md bg-[#030405] p-8 md:col-span-2">
           <div class="pt-6 space-y-5 sm:pt-0">
             <div class="flex items-start justify-start space-x-4">
@@ -110,8 +102,6 @@ export default {
           </div>
         </div>
       </div>
-      </form>
-    </div>
+    </form>
   </div>
-  <ui-footer class="relative px-3 py-24 -mt-10 sm:px-0" />
 </template>
