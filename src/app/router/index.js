@@ -30,6 +30,22 @@ const router = createRouter({
       children: [
         {
           path: '',
+          name: 'app',
+          component: () => import('../views/app/AppView.vue'),
+        },
+        {
+          path: 'select-genre',
+          name: 'app-genre',
+          component: () => import('../views/app/CreateView.vue'),
+        },
+        {
+          path: 'app-record-audio',
+          name: 'app-record-audio',
+          component: () => import('../views/app/CreateView.vue'),
+        },
+        {
+          path: 'app-compose',
+          name: 'app-compose',
           component: () => import('../views/app/CreateView.vue'),
         }
       ]

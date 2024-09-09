@@ -1,5 +1,5 @@
 <script>
-import Header from "@/app/views/order/Header.vue";
+import Header from "@/app/views/app/Header.vue";
 import Footer from "@/app/views/components/Footer.vue";
 import * as yup from "yup";
 export default {
@@ -53,7 +53,7 @@ export default {
             title: "Important message",
             text: "Please confirm your email",
             group: 'main',
-            type: "error",
+            type: "warn",
           });
         }
       } catch ({message}) {
@@ -75,7 +75,18 @@ export default {
           token: token,
           type: 'email',
         })
-        console.log('verify', session, error)
+        if (error === null) {
+          const query = Object.assign({}, this.$route.query)
+          delete query.email
+          this.$router.replace({ query })
+
+          this.$notify({
+            title: "Important message",
+            text: "Email Confirmed",
+            group: 'main',
+            type: "success",
+          });
+        }
       }
     }
   }
@@ -87,7 +98,7 @@ export default {
   <div class="mb-8 sm:mb-20" v-if="session">
     <router-view />
   </div>
-  <div class="mb-8 sm:mb-20">
+  <div class="mb-8 sm:mb-20" v-else>
     <div class="p-4 lg:p-0">
       <h2 class="text-4xl font-semibold text-center text-white font-heading sm:text-5xl">Let's create an account first</h2>
       <form @submit.prevent="submitForm">
