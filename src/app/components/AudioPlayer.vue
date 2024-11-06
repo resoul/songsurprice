@@ -1,11 +1,12 @@
 <script>
+import { closeModal } from "jenesius-vue-modal"
 export default {
   name: "AudioPlayer",
   props: {
-    title: String,
+    genreId: Number,
     stopSong: Boolean
   },
-  emits: ['selectedItem'],
+  emits: ['selectedItem', 'selectedAudioItem'],
   data() {
     return {
       audioSource: null,
@@ -21,43 +22,7 @@ export default {
       maxDuration: 0,
       duration: '',
       currentTime: '',
-      items: [
-        {
-          id: 1,
-          uri: '/a/h.p.michael.cut.mp3',
-          author: 'Song Surprice',
-          name: 'Happy Birthday Michael',
-          duration: '00:51'
-        },
-        {
-          id: 2,
-          uri: '/a/LoFIJazz1.mp3',
-          author: 'Song Surprice',
-          name: 'demo',
-          duration: '03:45'
-        },
-        {
-          id: 3,
-          uri: '/a/Rockpop1track_DEMOcut.mp3',
-          author: 'Song Surprice',
-          name: 'demo',
-          duration: '01:00'
-        },
-        {
-          id: 4,
-          uri: '/a/trap1_DEMOcut.mp3',
-          author: 'Song Surprice',
-          name: 'demo',
-          duration: '00:51'
-        },
-        {
-          id: 5,
-          uri: '/a/6track_dubstep_DEMOcut.mp3',
-          author: 'Song Surprice',
-          name: 'demo',
-          duration: '01:01'
-        }
-      ]
+      items: []
     }
   },
   watch: {
@@ -68,6 +33,9 @@ export default {
       }
     }
   },
+  mounted() {
+    this.loadGenres()
+  },
   unmounted() {
     this.stopAudioSong()
   },
@@ -77,9 +45,28 @@ export default {
     },
     isFirstBtnDisabled() {
       return this.currentIndex === 0
+    },
+    getItems() {
+      return this.items
     }
   },
   methods: {
+    async loadGenres() {
+      const { data: songs, error } = await this.$supabase.from('songs')
+          .select()
+          .eq('genre_id', this.genreId)
+
+      this.items = []
+      songs.forEach((song) => {
+        this.items.push({
+          id: song.id,
+          uri: song.endpoint,
+          author: song.artistName,
+          name: song.trackName,
+          duration: song.duration,
+        })
+      })
+    },
     playSong(item) {
       const started = item.isSongStarted
       this.items.forEach(i => i.isSongStarted = false)
@@ -124,10 +111,16 @@ export default {
       this.items[this.currentIndex].isSongStarted = false
     },
     updateAudioSong(item) {
+      if (!item.publicUrl) {
+        const { data } = this.$supabase.storage.from('audio').getPublicUrl(item.uri)
+        item.publicUrl = data.publicUrl
+      }
+
       this.stopAudioSong()
       item.isSongStarted = true
+      this.audioSource = new Audio(item.publicUrl)
+      // this.audioSource.addEventListener('loadedmetadata', this.loadedMetaData, false)
       this.currentTime = item.duration
-      this.audioSource = new Audio(item.uri)
       this.$emit('selectedItem', item)
       this.currentDuration = 0
       this.maxDuration = 0
@@ -181,6 +174,9 @@ export default {
       const min = Math.floor((duration - (hr * 3600)) / 60);
       const sec = Math.floor(duration - (hr * 3600) - (min * 60));
       return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+    },
+    selectTrack() {
+      this.$emit('selectedAudioItem', this.items[this.currentIndex])
     }
   }
 }
@@ -188,9 +184,8 @@ export default {
 
 <template>
   <div class="ui-release">
-    <h2 class="ui-release-title" v-text="title"></h2>
     <ul class="ui-release-player">
-      <li v-for="(item, index) in items" :key="index" @click="playSong(item)">
+      <li v-for="(item, index) in getItems" :key="index" @click="playSong(item)">
         <div class="cover">
           <i :class="item.isSongStarted ? 'pause-icon' : 'play-icon'">
             <svg v-if="item.isSongStarted"><path transform="scale(0.8)" d="M14.5 2A1.5 1.5 0 0116 3.5v17a1.5 1.5 0 01-3 0v-17A1.5 1.5 0 0114.5 2m0-2C12.57 0 11 1.57 11 3.5v17c0 1.93 1.57 3.5 3.5 3.5s3.5-1.57 3.5-3.5v-17C18 1.57 16.43 0 14.5 0zm-11 0C1.57 0 0 1.57 0 3.5V12h2V3.5a1.5 1.5 0 113 0v17a1.5 1.5 0 01-3 0V18H0v2.5C0 22.43 1.57 24 3.5 24S7 22.43 7 20.5v-17C7 1.57 5.43 0 3.5 0z"/><path d="M0 14h2v2H0z"/></svg>
@@ -206,6 +201,7 @@ export default {
         </div>
       </li>
     </ul>
+    <button @click="selectTrack">Select</button>
   </div>
   <teleport to="body">
     <div class="ui-release-audio" v-if="isModalOpen">
@@ -236,3 +232,139 @@ export default {
     </div>
   </teleport>
 </template>
+
+<style>
+.ui-release {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 100%;
+  flex: 0 0 50%;
+  order: 2;
+}
+.ui-release-player {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ui-release-audio {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 20px;
+  text-align: left;
+  vertical-align: top;
+  text-indent: 0;
+  position: fixed;
+  height: 70px;
+  width: 100%;
+  z-index: 22;
+}
+.ui-release-player li {
+  padding: 5px;
+  margin-top: 10px;
+  transition: all .3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ui-release-player li:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ui-release-player li:first-child {
+  margin-top: 0;
+}
+.ui-release-player li .cover {
+  flex: 0 1 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ui-release-player li .pause-icon,
+.ui-release-player li .play-icon {
+  opacity: 1;
+  fill: #515365;
+  color: #515365;
+}
+.ui-release-player li .play-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.ui-release-player li .pause-icon svg {
+  width: 16px;
+  height: 20px;
+}
+.ui-release-player li .composition {
+  flex: 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ui-release-player li .composition-time {
+  flex: 0 1 50px;
+}
+.ui-release-player li time {
+  transition: all .3s ease;
+  margin-right: 10px;
+  color: #888da8;
+}
+.ui-release-player li .composition-name {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #515365;
+}
+.ui-release-player li .composition-author {
+  display: block;
+  font-size: 11px;
+  color: #888da8;
+}
+.ui-release-audio-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.ui-btn-audio-control {
+  background: transparent;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+}
+.ui-btn-audio-control {
+  width: 26px;
+  height: 26px;
+  margin-left: 30px;
+}
+.ui-btn-audio-control:first-child {
+  margin-left: 0;
+}
+.ui-btn-audio-control-duration {
+  margin-left: 30px;
+  color: #888da8;
+  font-size: 11px;
+  line-height: 11px;
+  width: 34px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+}
+.ui-btn-audio-control-slider{
+  flex: auto;
+  height: 26px;
+  margin-left: 30px;
+}
+.ui-btn-audio-control-slider input, .ui-btn-audio-control-volume input {
+  width: 100%;
+  height: 100%;
+}
+.ui-btn-audio-control-volume {
+  width: 70px;
+  height: 26px;
+  margin-left: 30px;
+}
+</style>

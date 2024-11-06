@@ -29,14 +29,19 @@ export default {
     this.wavesurfer = WaveSurfer.create({
       container: this.$refs.mic,
       waveColor: 'rgb(200, 0, 200)',
-      progressColor: 'rgb(100, 0, 100)',
+      progressColor: 'rgb(100, 0, 100)'
     })
 
-    const plugin = RecordPlugin.create({ scrollingWaveform: true, renderRecordedAudio: true })
+    const plugin = RecordPlugin.create({
+      scrollingWaveform: true,
+      renderRecordedAudio: true
+    })
+
     this.record = this.wavesurfer.registerPlugin(plugin)
     // Render recorded audio
     this.record.on('record-end', (blob) => {
       this.audios.push({
+        blob: blob,
         recordedUrl: URL.createObjectURL(blob),
         duration: this.duration
       })
@@ -80,8 +85,8 @@ export default {
         this.showPauseBtn = true
       })
     },
-    selectItem(uri, duration) {
-      this.$emit('selectItem', uri, duration);
+    selectItem(uri, duration, blob) {
+      this.$emit('selectItem', uri, duration, blob);
     }
   }
 }
@@ -96,7 +101,7 @@ export default {
     </div>
     <div class="ui-audio-recorder-waveform" ref="mic"></div>
     <div class="ui-audio-recorder-recordings" v-if="audios.length">
-      <ui-audio-recorder-item v-for="audio in audios" :recorded-url="audio.recordedUrl" :duration="duration" @select-item="selectItem" />
+      <ui-audio-recorder-item v-for="audio in audios" :recorded-url="audio.recordedUrl" :blob="audio.blob" :duration="duration" @select-item="selectItem" />
     </div>
   </div>
 </template>

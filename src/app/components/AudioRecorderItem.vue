@@ -4,6 +4,7 @@ import WaveSurfer from "wavesurfer.js";
 export default {
   name: "AudioRecorderItem",
   props: {
+    blob: Blob,
     recordedUrl: String,
     duration: Number
   },
@@ -41,7 +42,7 @@ export default {
   <div class="ui-audio-recorder-item-wave" ref="wave"></div>
   <div class="ui-audio-recorder-item-control">
     <button v-text="btnText" @click="playPause" class="ui-card-button"></button>
-    <button @click="$emit('selectItem', recordedUrl, duration)" class="ui-card-button select">Select</button>
+    <button @click="$emit('selectItem', recordedUrl, duration, blob)" class="ui-card-button select">Select</button>
   </div>
 </div>
 </template>
