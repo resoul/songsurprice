@@ -40,14 +40,12 @@
     background: linear-gradient(to left, #f8721d, #d347ef, #5146e6);
     padding: 10px;
   }
-
-  &.success {
-    /*...*/
-  }
-  &.info {
-    /*...*/
-  }
-  &.error {
-    /*...*/
+}
+.widget__modal-wrap {
+  max-width: 750px;
+  width: 100%;
+  background: #000;
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }

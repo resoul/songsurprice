@@ -6,8 +6,8 @@ import { createPinia } from 'pinia'
 import Notifications from '@kyvg/vue3-notification'
 import { createClient } from '@supabase/supabase-js'
 
-import App from './app/App.vue'
-import router from './app/router'
+import App from './App.vue'
+import router from './router'
 
 const app = createApp(App)
 app.config.globalProperties.$supabase = createClient(

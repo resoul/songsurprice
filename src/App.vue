@@ -1,7 +1,6 @@
 <script>
 import { container } from "jenesius-vue-modal";
 export default {
-  name: "App",
   components: {
     WidgetContainerModal : container
   }

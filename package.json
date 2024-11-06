@@ -11,6 +11,7 @@
   "dependencies": {
     "@kyvg/vue3-notification": "^3.3.0",
     "@supabase/supabase-js": "^2.45.3",
+    "jenesius-vue-modal": "^1.11.9",
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5",
