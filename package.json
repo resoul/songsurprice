@@ -16,6 +16,7 @@
     "vue": "^3.4.15",
     "vue-router": "^4.2.5",
     "wavesurfer.js": "^7.7.2",
+    "webm-to-wav-converter": "^1.0.2",
     "yup": "^1.2.0"
   },
   "devDependencies": {
