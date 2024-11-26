@@ -1,7 +1,7 @@
 <script>
 import WaveSurfer from 'wavesurfer.js'
 import RecordPlugin from 'wavesurfer.js/dist/plugins/record.esm.js'
-import AudioRecorderItem from "@/app/components/AudioRecorderItem.vue";
+import AudioRecorderItem from "@/views/components/AudioRecorderItem.vue";
 export default {
   name: "AudioRecorder",
   components: {
@@ -85,8 +85,8 @@ export default {
         this.showPauseBtn = true
       })
     },
-    selectItem(uri, duration, blob) {
-      this.$emit('selectItem', uri, duration, blob);
+    selectItem(duration, blob) {
+      this.$emit('selectItem', duration, blob);
     }
   }
 }
@@ -95,8 +95,11 @@ export default {
 <template>
   <div class="ui-audio-recorder">
     <div class="ui-audio-recorder-control">
-      <button @click="onRecord" class="ui-card-button" v-text="recordBtnText" :disabled="isRecordBtnDisabled"></button>
-      <button @click="onPause" class="ui-card-button" v-text="pauseBtnText" v-if="showPauseBtn"></button>
+      <div>
+        <button @click="onRecord" class="ui-card-button" v-text="recordBtnText" :disabled="isRecordBtnDisabled"></button>
+        <span v-if="showPauseBtn">|</span>
+        <button @click="onPause" class="ui-card-button" v-text="pauseBtnText" v-if="showPauseBtn"></button>
+      </div>
       <p v-text="progress"></p>
     </div>
     <div class="ui-audio-recorder-waveform" ref="mic"></div>
@@ -105,3 +108,44 @@ export default {
     </div>
   </div>
 </template>
+
+<style lang="scss">
+.ui-audio-recorder-control {
+  display: flex;
+  justify-content: space-between;
+  > div {
+    display: flex;
+    justify-content: space-between;
+    span {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+  }
+}
+.ui-audio-recorder-recordings {
+  padding-top: 15px;
+  overflow-y: auto;
+  height: 100%;
+  min-height: 150px;
+  max-height: 350px;
+  .ui-audio-recorder-item {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+    &:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+  }
+}
+.ui-audio-recorder-waveform {
+  padding-bottom: 5px;
+  border-bottom: 3px solid #3b82f6;
+}
+.ui-audio-recorder-item-control {
+  .select {
+    margin-left: 10px;
+  }
+}
+</style>

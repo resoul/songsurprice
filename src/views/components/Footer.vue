@@ -41,7 +41,7 @@ export default {
             <h3 class="text-base font-medium text-gray-500 mb-7 font-heading tracking-px">Support</h3>
             <ul>
               <li class="mb-4">
-                <router-link class="text-base font-medium text-white font-heading hover:text-gray-200" :to="{ name: 'contact' }">Contact Us</router-link>
+                <router-link class="text-base font-medium text-white font-heading hover:text-gray-200" :to="{ name: 'home' }">Contact Us</router-link>
               </li>
             </ul>
           </div>

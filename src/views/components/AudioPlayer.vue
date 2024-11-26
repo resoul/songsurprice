@@ -1,12 +1,11 @@
 <script>
-import { closeModal } from "jenesius-vue-modal"
 export default {
   name: "AudioPlayer",
   props: {
     genreId: Number,
     stopSong: Boolean
   },
-  emits: ['selectedItem', 'selectedAudioItem'],
+  emits: ['selectedItem', 'selectedAudioItem', 'notSelected'],
   data() {
     return {
       audioSource: null,
@@ -175,6 +174,9 @@ export default {
       const sec = Math.floor(duration - (hr * 3600) - (min * 60));
       return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
     },
+    returnBtn() {
+      this.$emit('notSelected')
+    },
     selectTrack() {
       this.$emit('selectedAudioItem', this.items[this.currentIndex])
     }
@@ -184,7 +186,7 @@ export default {
 
 <template>
   <div class="ui-release">
-    <ul class="ui-release-player">
+    <ul class="ui-release-player" style="margin-bottom: 25px">
       <li v-for="(item, index) in getItems" :key="index" @click="playSong(item)">
         <div class="cover">
           <i :class="item.isSongStarted ? 'pause-icon' : 'play-icon'">
@@ -201,30 +203,36 @@ export default {
         </div>
       </li>
     </ul>
-    <button @click="selectTrack">Select</button>
+    <div style="display: flex; justify-content: space-between">
+      <button @click="returnBtn">Back to Select Genre</button>
+      <div @click="selectTrack" class="relative block px-5 py-2 overflow-hidden text-lg text-white border-2 group font-heading" style="text-align: center; width:150px; cursor: pointer; border-image:linear-gradient(to left, #f8721d, #d347ef, #5146e6) 1;">
+        <div class="absolute top-0 left-0 w-full h-full transition duration-500 ease-in-out transform -translate-y-full group-hover:-translate-y-0" style="background-image:linear-gradient(to left, #f8721d, #d347ef, #5146e6);"></div>
+        <p class="relative z-10 group-hover:text-white">Select</p>
+      </div>
+    </div>
   </div>
   <teleport to="body">
     <div class="ui-release-audio" v-if="isModalOpen">
       <div class="ui-release-audio-controls">
-        <button class="ui-btn-audio-control" @click="playPrevSong" :disabled="isFirstBtnDisabled"><img alt="Prev Btn" src="../assets/svg/prev-song.svg" /></button>
-        <button class="ui-btn-audio-control" v-if="isSongStarted" @click="play"><img alt="Play" src="../assets/svg/play-icon.svg" /></button>
-        <button class="ui-btn-audio-control" v-else  @click="pause"><img alt="Pause" src="../assets/svg/pause-icon.svg" /></button>
-        <button class="ui-btn-audio-control" @click="playNextSong" :disabled="isLastBtnDisabled"><img alt="Next Btn" src="../assets/svg/next-song.svg" /></button>
+        <button class="ui-btn-audio-control" @click="playPrevSong" :disabled="isFirstBtnDisabled"><img alt="Prev Btn" src="@/assets/svg/prev-song.svg" /></button>
+        <button class="ui-btn-audio-control" v-if="isSongStarted" @click="play"><img alt="Play" src="@/assets/svg/play-icon.svg" /></button>
+        <button class="ui-btn-audio-control" v-else  @click="pause"><img alt="Pause" src="@/assets/svg/pause-icon.svg" /></button>
+        <button class="ui-btn-audio-control" @click="playNextSong" :disabled="isLastBtnDisabled"><img alt="Next Btn" src="@/assets/svg/next-song.svg" /></button>
         <button class="ui-btn-audio-control" @click="onRepeat">
-          <img v-if="repeat" src="../assets/svg/repeat.svg" alt="Repeat" />
-          <img v-else src="../assets/svg/repeat-off.svg" alt="Repeat Off" />
+          <img v-if="repeat" src="@/assets/svg/repeat.svg" alt="Repeat" />
+          <img v-else src="@/assets/svg/repeat-off.svg" alt="Repeat Off" />
         </button>
         <button class="ui-btn-audio-control" @click="onShuffle">
-          <img v-if="shuffle" src="../assets/svg/shuffle-on.svg" alt="Shuffle Off" />
-          <img v-else src="../assets/svg/shuffle.svg" alt="Shuffle" />
+          <img v-if="shuffle" src="@/assets/svg/shuffle-on.svg" alt="Shuffle Off" />
+          <img v-else src="@/assets/svg/shuffle.svg" alt="Shuffle" />
         </button>
         <div class="ui-btn-audio-control-duration" v-text="duration"></div>
         <div class="ui-btn-audio-control-slider">
           <input type="range" min="0" :max="maxDuration" @click="changeDuration" v-model="currentDuration" step="0.1"/>
         </div>
         <div class="ui-btn-audio-control-duration" v-text="currentTime"></div>
-        <button class="ui-btn-audio-control" v-if="isSound" @click="muteSound"><img alt="Mute" src="../assets/svg/sound.svg" /></button>
-        <button class="ui-btn-audio-control" v-else  @click="onSound"><img alt="Sound On" src="../assets/svg/no-sound.svg" /></button>
+        <button class="ui-btn-audio-control" v-if="isSound" @click="muteSound"><img alt="Mute" src="@/assets/svg/sound.svg" /></button>
+        <button class="ui-btn-audio-control" v-else  @click="onSound"><img alt="Sound On" src="@/assets/svg/no-sound.svg" /></button>
         <div class="ui-btn-audio-control-volume">
           <input type="range" min="0" max="1" v-model="volume" step="0.1"/>
         </div>
