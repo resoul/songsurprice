@@ -1,8 +1,8 @@
 <script>
-import Curves from "@/app/views/home/components/Curves.vue";
-import IdeaIcon from "@/app/views/home/components/IdeaIcon.vue";
-import SettingIcon from "@/app/views/home/components/SettingIcon.vue";
-import LikeIcon from "@/app/views/home/components/LikeIcon.vue";
+import Curves from "@/components/Curves.vue";
+import IdeaIcon from "@/components/IdeaIcon.vue";
+import SettingIcon from "@/components/SettingIcon.vue";
+import LikeIcon from "@/components/LikeIcon.vue";
 
 export default {
   name: "HowItWork",
