@@ -2,6 +2,7 @@
 export default {
   name: "AudioPlayer",
   props: {
+    tab: String,
     genreId: Number,
     stopSong: Boolean
   },
@@ -33,7 +34,7 @@ export default {
     }
   },
   mounted() {
-    this.loadGenres()
+    this.loadTracks()
   },
   unmounted() {
     this.stopAudioSong()
@@ -50,10 +51,11 @@ export default {
     }
   },
   methods: {
-    async loadGenres() {
+    async loadTracks() {
       const { data: songs, error } = await this.$supabase.from('songs')
           .select()
-          .eq('genre_id', this.genreId)
+          .eq(`${this.tab}_id`, this.genreId)
+          .order('sort', { ascending: true })
 
       this.items = []
       songs.forEach((song) => {
@@ -253,6 +255,10 @@ export default {
   margin: 0;
   padding: 0;
   list-style: none;
+  max-height: 450px;
+  overflow: hidden;
+  height: 100%;
+  overflow-y: auto;
 }
 .ui-release-audio {
   bottom: 0;

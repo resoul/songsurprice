@@ -18,18 +18,25 @@ export default {
     return {
       schema,
       loading: false,
+      isGenresFetched: false,
+      isMoodsFetched: false,
+      isTrackFetched: false,
       formData: {
         desc: '',
         name: '',
         email: '',
       },
-      title: 'Choose Genre',
-      showGenres: true,
+      title: 'Let\'s start',
+      tab: '',
+      showPromo: true,
+      showGenres: false,
+      showMoods: false,
       showAudioPlayer: false,
       showRecordPlayer: false,
       showForm: false,
       selectedGenderId: 0,
       genres: null,
+      moods: null,
       order: {
         id: 0,
         name: '',
@@ -39,9 +46,6 @@ export default {
       }
     }
   },
-  mounted() {
-    this.fetchGenres()
-  },
   methods: {
     selectGenre(genre) {
       this.selectedGenderId = genre.id
@@ -50,6 +54,25 @@ export default {
       this.showAudioPlayer = true
       this.showForm = false
       this.title = genre.name
+    },
+    selectMood(mood) {
+      this.selectedGenderId = mood.id
+      this.showMoods = false
+      this.showGenres = false
+      this.showRecordPlayer = false
+      this.showAudioPlayer = true
+      this.showForm = false
+      this.title = mood.name
+      this.tab = 'mood'
+    },
+    showAllTracksTab() {
+      this.showMoods = false
+      this.showGenres = false
+      this.showRecordPlayer = false
+      this.showAudioPlayer = true
+      this.showForm = false
+      this.title = 'All track'
+      this.tab = 'track'
     },
     selectedAudioItem(item) {
       this.order.id = item.id
@@ -63,13 +86,21 @@ export default {
       this.showForm = false
     },
     notSelectedAudioItem() {
+      switch (this.tab) {
+        case 'mood':
+          this.showMoodTab()
+          break;
+        case 'genre':
+          this.showGenresTab()
+          break;
+        case 'track':
+          this.showPromoTab()
+          break;
+      }
       this.selectedGenderId = 0
-      this.showGenres = true
       this.showAudioPlayer = false
       this.showRecordPlayer = false
       this.showForm = false
-      this.title = 'Choose Genre'
-      this.fetchGenres()
     },
     selectVoiceItem(duration, blob) {
       this.showGenres = false
@@ -118,9 +149,46 @@ export default {
         });
       }
     },
+    showMoodTab() {
+      this.title = 'Choose Mood'
+      this.showPromo = false
+      this.showGenres = false
+      this.showMoods = true
+      this.fetchMoods()
+      this.tab = 'mood'
+    },
+    showGenresTab() {
+      this.title = 'Select Genres'
+      this.showPromo = false
+      this.showGenres = true
+      this.showMoods = false
+      this.fetchGenres()
+      this.tab = 'genre'
+    },
+    showPromoTab() {
+      this.title = 'Let\'s start'
+      this.showPromo = true
+      this.showGenres = false
+      this.showMoods = false
+      this.fetchGenres()
+    },
     async fetchGenres() {
-      const { data: genres, error } = await this.$supabase.from('genres').select()
-      if (error === null) this.genres = genres
+      if (!this.isGenresFetched) {
+        const { data: genres, error } = await this.$supabase.from('genres').select()
+        if (error === null) {
+          this.genres = genres
+          this.isGenresFetched = true
+        }
+      }
+    },
+    async fetchMoods() {
+      if (!this.isMoodsFetched) {
+        const { data: moods, error } = await this.$supabase.from('Moods').select()
+        if (error === null) {
+          this.moods = moods
+          this.isMoodsFetched = true
+        }
+      }
     }
   }
 }
@@ -130,13 +198,39 @@ export default {
   <div class="modal-window modal-item widget__modal-wrap" style="border: 1px solid #fff; padding: 10px; border-radius: 8px">
     <h3 class="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-fuchsia-500 opacity-90 to-indigo-600 font-heading" style="text-align: center"  v-text="title" />
     <div class="relative rounded-xl overflow-auto p-8">
-      <div class="grid grid-cols-4 gap-4" v-if="showGenres">
-        <template v-for="genre in genres" :key="genre.id">
-          <div @click="selectGenre(genre)" class="p-4 rounded-lg shadow-lg bg-fuchsia-500"  :style="`cursor:pointer;background-color:${genre.backgroundColor}`" v-text="genre.name" />
-        </template>
+      <div class="grid grid-cols-3 gap-4" v-if="showPromo">
+        <div @click="showAllTracksTab" class="p-4 rounded-lg shadow-lg bg-fuchsia-500" style="cursor: pointer; background-color: rgb(27, 132, 255);">
+          All tracks
+        </div>
+        <div @click="showGenresTab" class="p-4 rounded-lg shadow-lg bg-fuchsia-500" style="cursor: pointer; background-color: rgb(255, 111, 30);">
+          Genres
+        </div>
+        <div @click="showMoodTab" class="p-4 rounded-lg shadow-lg bg-fuchsia-500" style="cursor: pointer; background-color: rgb(37, 47, 74);">
+          Moods
+        </div>
       </div>
+      <template v-if="showGenres">
+        <div class="grid grid-cols-4 gap-4">
+          <template v-for="genre in genres" :key="genre.id">
+            <div @click="selectGenre(genre)" class="p-4 rounded-lg shadow-lg bg-fuchsia-500"  :style="`cursor:pointer;background-color:${genre.backgroundColor}`" v-text="genre.name" />
+          </template>
+        </div>
+        <div style="display: flex; justify-content: space-between;padding-top: 15px">
+          <button @click="showPromoTab"><< Back</button>
+        </div>
+      </template>
+      <template v-if="showMoods">
+        <div class="grid grid-cols-2 gap-4">
+          <template v-for="mood in moods" :key="mood.id">
+            <div @click="selectMood(mood)" class="p-4 rounded-lg shadow-lg bg-fuchsia-500"  :style="`cursor:pointer;background-color:${mood.mood_background_colour}`" v-text="mood.name" />
+          </template>
+        </div>
+        <div style="display: flex; justify-content: space-between;padding-top: 15px">
+          <button @click="showPromoTab"><< Back</button>
+        </div>
+      </template>
       <div v-if="showAudioPlayer">
-        <ui-audio :genre-id="selectedGenderId" @not-selected="notSelectedAudioItem" @selected-audio-item="selectedAudioItem" />
+        <ui-audio :genre-id="selectedGenderId" :tab="tab" @not-selected="notSelectedAudioItem" @selected-audio-item="selectedAudioItem" />
       </div>
       <div v-if="showRecordPlayer" class="relative rounded-xl overflow-auto p-8">
         <ui-audio-recorder  @select-item="selectVoiceItem" />
